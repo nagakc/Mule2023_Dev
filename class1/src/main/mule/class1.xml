@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="13351dac-fa09-467d-97ba-ff5d71e19ed2" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="class1Flow" doc:id="75298a71-a68c-4e07-a4d9-981bbfa8be28" >
+		<http:listener doc:name="Listener" doc:id="5ca60a21-3bb8-4a85-a12b-75a1b9decbce" config-ref="HTTP_Listener_config" path="/class1"/>
+		<set-payload value='"This is class1 lesson"' doc:name="Set Payload" doc:id="616896ed-a2fb-4a88-98a0-347220c3a816" />
+		<logger level="INFO" doc:name="Logger" doc:id="8c49f48b-dd98-40df-89c6-2a132c96220c" message="#[payload]"/>
+	</flow>
+</mule>
